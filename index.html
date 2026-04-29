@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Rosetha Kays | Academic & Professional Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:     #0f1923;
+      --ink2:    #2a3a4a;
+      --muted:   #6b7e8f;
+      --rule:    #c8d8e4;
+      --sand:    #f5f0e8;
+      --cream:   #faf8f4;
+      --teal:    #1a6b6b;
+      --teal2:   #0d4a4a;
+      --gold:    #b8860b;
+      --white:   #ffffff;
+      --serif:   'Cormorant Garamond', Georgia, serif;
+      --sans:    'DM Sans', system-ui, sans-serif;
+      --mono:    'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ───────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(250,248,244,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(15,25,35,0.08); }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--teal2);
+      letter-spacing: 0.02em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -3px; left: 0; right: 0; height: 1px;
+      background: var(--teal);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* ── HERO ──────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left {
+      padding: 8rem 4rem 6rem 5rem;
+      position: relative; z-index: 2;
+    }
+    .hero-right {
+      background: var(--teal2);
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-pattern {
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 30% 70%, rgba(26,107,107,0.5) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(184,134,11,0.2) 0%, transparent 40%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.06;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .hero-monogram {
+      position: relative; z-index: 2;
+      font-family: var(--serif);
+      font-size: clamp(8rem, 15vw, 14rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.12);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      user-select: none;
+    }
+    .hero-badge {
+      position: absolute; bottom: 3rem; right: 3rem; z-index: 3;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 2px;
+      padding: 1.2rem 1.5rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 1.8;
+      backdrop-filter: blur(8px);
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block; width: 2rem; height: 1px;
+      background: var(--teal);
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    h1 em { font-style: italic; color: var(--teal); }
+    .hero-title-sub {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.8rem;
+    }
+    .hero-desc {
+      font-size: 0.92rem;
+      color: var(--ink2);
+      max-width: 440px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.6rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--teal2);
+      color: var(--white);
+      border: 1px solid var(--teal2);
+    }
+    .btn-primary:hover { background: var(--teal); border-color: var(--teal); }
+    .btn-outline {
+      background: transparent;
+      color: var(--ink2);
+      border: 1px solid var(--rule);
+    }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+    .hero-stats {
+      display: flex; gap: 2.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .stat-item {}
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--teal2);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    /* ── SECTIONS ──────────────────────── */
+    section { padding: 6rem 5rem; }
+    section:nth-child(even) { background: var(--white); }
+
+    .section-header { margin-bottom: 3.5rem; }
+    .section-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .section-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--teal); }
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    h2 em { font-style: italic; color: var(--teal); }
+
+    /* ── ABOUT ─────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 0.95rem;
+      color: var(--ink2);
+      margin-bottom: 1.2rem;
+      line-height: 1.9;
+    }
+    .about-text p:first-child {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .about-sidebar {}
+    .info-block { margin-bottom: 2rem; }
+    .info-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .info-value {
+      font-size: 0.9rem;
+      color: var(--ink2);
+    }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tag {
+      padding: 0.3rem 0.8rem;
+      background: var(--sand);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      font-size: 0.74rem;
+      color: var(--ink2);
+      letter-spacing: 0.03em;
+    }
+    .tag:hover { background: var(--teal2); color: var(--white); border-color: var(--teal2); transition: all 0.2s; }
+
+    /* ── EXPERIENCE ────────────────────── */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 1px; background: var(--rule);
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2.5rem;
+      padding: 0 0 3rem 0;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -4px; top: 6px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--teal);
+      border: 2px solid var(--cream);
+    }
+    section:nth-child(even) .timeline-item::before { border-color: var(--white); }
+    .timeline-date {
+      text-align: right;
+      padding-right: 2.5rem;
+      padding-top: 2px;
+    }
+    .timeline-period {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--teal);
+      letter-spacing: 0.05em;
+    }
+    .timeline-org {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+    .timeline-content {}
+    .timeline-role {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-bullets { list-style: none; margin-top: 0.8rem; }
+    .timeline-bullets li {
+      font-size: 0.86rem;
+      color: var(--ink2);
+      padding: 0.25rem 0 0.25rem 1.2rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .timeline-bullets li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--teal);
+      font-size: 0.7rem;
+    }
+
+    /* ── RESEARCH / PUBLICATIONS ──────── */
+    .pub-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+    .pub-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: var(--sand);
+      border-left: 3px solid var(--teal);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pub-card:hover { transform: translateX(4px); box-shadow: -4px 4px 20px rgba(26,107,107,0.08); }
+    .pub-year {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--teal);
+      font-weight: 500;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      align-self: center;
+    }
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+    .pub-authors {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .pub-venue {
+      font-size: 0.8rem;
+      color: var(--teal);
+      font-style: italic;
+    }
+
+    /* ── SKILLS ────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .skill-group {}
+    .skill-group-title {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .skill-list { list-style: none; }
+    .skill-list li {
+      font-size: 0.87rem;
+      color: var(--ink2);
+      padding: 0.3rem 0;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .skill-list li::before {
+      content: '';
+      display: block; width: 4px; height: 4px;
+      border-radius: 50%; background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ── EDUCATION ─────────────────────── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .edu-card {
+      padding: 1.8rem;
+      border: 1px solid var(--rule);
+      position: relative;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .edu-card:hover { border-color: var(--teal); box-shadow: 0 4px 20px rgba(26,107,107,0.08); }
+    .edu-year {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .edu-degree {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+    .edu-inst {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ── CONTACT ───────────────────────── */
+    #contact {
+      background: var(--teal2);
+      color: var(--white);
+    }
+    #contact .section-eyebrow { color: rgba(255,255,255,0.5); }
+    #contact .section-eyebrow::before { background: rgba(255,255,255,0.5); }
+    #contact h2 { color: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-intro {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.8;
+      margin-top: 1.5rem;
+    }
+    .contact-items { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .contact-icon {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+    .contact-detail {}
+    .contact-detail-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.2rem;
+    }
+    .contact-detail-value {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .refs-grid {
+      display: flex; flex-direction: column; gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    .ref-card {
+      padding: 1.2rem 1.5rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+    }
+    .ref-name {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 0.2rem;
+    }
+    .ref-role { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-bottom: 0.3rem; }
+    .ref-email { font-family: var(--mono); font-size: 0.75rem; color: rgba(26,180,180,0.8); }
+
+    /* ── FOOTER ────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── ANIMATIONS ────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 7rem 1.5rem 4rem; }
+      section { padding: 4rem 1.5rem; }
+      .about-grid, .contact-grid, .edu-grid, .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .timeline-date { text-align: left; padding: 0; }
+      .timeline::before { display: none; }
+      .timeline-item::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-brand">Dr. Rosetha Kays</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left reveal">
+      <div class="eyebrow">Academic &amp; Professional Portfolio</div>
+      <h1>Dr. <em>Rosetha</em><br>Kays</h1>
+      <p class="hero-title-sub">née McKay &nbsp;·&nbsp; PhD, Computer Science</p>
+      <p class="hero-desc">
+        Lecturer, researcher, and community-centred technologist at the Namibia University of Science and Technology. Specialising in Human–Computer Interaction, Design Thinking, and participatory co-design with marginalised communities.
+      </p>
+      <div class="hero-ctas">
+        <a href="#research" class="btn btn-primary">View Research</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Publications</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">PhD</div>
+          <div class="stat-label">Computer Science</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-pattern"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-monogram">RK</div>
+      <div class="hero-badge">
+        NUST · Windhoek, Namibia<br>
+        Computer Science &amp; Software Engineering<br>
+        HCI · Design Thinking · Co-Design
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">About</div>
+      <h2>Bridging <em>Technology</em> &amp; Community</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Accomplished academic and researcher with a PhD in Computer Science and over two decades of combined teaching and industry experience in Namibia and beyond.</p>
+        <p>Her research focuses on Software Development, Human–Computer Interaction (HCI), and the design of technologies that support educational resilience through human-centred and participatory approaches with marginalised communities — particularly indigenous San learners and Namibian youth.</p>
+        <p>Since 2015 she has been lecturing at NUST, mentoring students, supervising research projects, and contributing to curriculum development and community-focused educational initiatives. She is also an active conference organiser and workshop facilitator on the African continent.</p>
+        <p>Deeply committed to ethical practice in an evolving digital landscape, she believes technology should serve people — not the other way around.</p>
+      </div>
+      <div class="about-sidebar reveal">
+        <div class="info-block">
+          <div class="info-label">Institution</div>
+          <div class="info-value">Namibia University of Science &amp; Technology (NUST)</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Department</div>
+          <div class="info-value">Computer Science &amp; Software Engineering</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Location</div>
+          <div class="info-value">Windhoek, Namibia</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Languages</div>
+          <div class="info-value">English · Afrikaans · Damara/Nama</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Research Interests</div>
+          <div class="tag-cloud">
+            <span class="tag">Human–Computer Interaction</span>
+            <span class="tag">Design Thinking</span>
+            <span class="tag">Participatory Co-Design</span>
+            <span class="tag">Software Development</span>
+            <span class="tag">AI Applications</span>
+            <span class="tag">Educational Resilience</span>
+            <span class="tag">Indigenous Community Dev</span>
+            <span class="tag">Learner Well-being</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Career</div>
+      <h2>Professional <em>Experience</em></h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <div class="timeline-period">2015 — Present</div>
+          <div class="timeline-org">NUST</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-role">Lecturer &amp; Researcher</div>
+          <ul class="timeline-bullets">
+            <li>Design and deliver lectures in Computer Science and Software Engineering, integrating real-world challenges into active learning environments.</li>
+            <li>Supervise undergraduate and postgraduate research projects; mentor students through academic and professional journeys.</li>
+            <li>Lead curriculum development for newly introduced academic programmes aligned with industry needs and accreditation standards.</li>
+            <li>Conduct and publish peer-reviewed research in HCI, participatory design, and educational technology.</li>
+            <li>Workshop Co-Chair, AfriCHi Conference Industry Workshop Track (2025); organiser of Annual Programming Competition (2015–present).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <div class="timeline-period">2013 — 2014</div>
+          <div class="timeline-org">Road Fund Administration</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-role">Business Systems Analyst</div>
+          <ul class="timeline-bullets">
+            <li>Analysed business processes to identify improvements and gather system requirements.</li>
+            <li>Facilitated stakeholder workshops and coordinated project timelines for IT implementations.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <div class="timeline-period">2012</div>
+          <div class="timeline-org">Standard Bank Namibia</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-role">Application Support Specialist</div>
+          <ul class="timeline-bullets">
+            <li>Provided technical support for core banking systems and managed upgrades, testing, and go-live support.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <div class="timeline-period">2007 — 2011</div>
+          <div class="timeline-org">Metropolitan Namibia</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-role">IT Helpdesk Technician</div>
+          <ul class="timeline-bullets">
+            <li>Provided Tier-1/2 technical support for hardware, software, and network issues.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <div class="timeline-period">2003 — 2006</div>
+          <div class="timeline-org">Business Connexion</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-role">IT Helpdesk Technician</div>
+          <ul class="timeline-bullets">
+            <li>Resolved hardware, software, and network issues; contributed to improvements in help desk operations and documentation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH & PUBLICATIONS -->
+  <section id="research">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Scholarship</div>
+      <h2>Selected <em>Publications</em></h2>
+    </div>
+    <div class="pub-grid">
+      <div class="pub-card reveal">
+        <div class="pub-year">2023</div>
+        <div>
+          <div class="pub-title">Designing for Educational Resilience to Reduce School Dropout: A Case Study of Namibian San Learners</div>
+          <div class="pub-authors">Kays, R., Goagoses, N., &amp; Winschiers-Theophilus, H.</div>
+          <div class="pub-venue">ACM Journal on Computing and Sustainable Societies, 1(2), 1–21</div>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-year">2023</div>
+        <div>
+          <div class="pub-title">Let's Dance / Hi//Ka//Kusi with Non-Player Character Ju/'Hoansi Women in Virtual Reality</div>
+          <div class="pub-authors">Johansen, F.B., Jørgensen, M.R., Kjeldsen, T.K., Kays, R., Winschiers-Theophilus, H. et al.</div>
+          <div class="pub-venue">Proceedings of the 4th African Human Computer Interaction Conference, pp. 241–245</div>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-year">2023</div>
+        <div>
+          <div class="pub-title">Co-Designing Technologies with Children</div>
+          <div class="pub-authors">Itenge, H., Kays, R., Auala, S., Chivuno-Kuria, S., Peter, K., &amp; Makosa, I.</div>
+          <div class="pub-venue">Proceedings of the 4th African Human Computer Interaction Conference, pp. 300–303</div>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-year">2021</div>
+        <div>
+          <div class="pub-title">Women as Citizen Scientists: Identifying Potential Digital Solutions for Addressing Gender-Based Challenges</div>
+          <div class="pub-authors">Iyawa, G.E., Akinmoyeje, B.A., Kays, R., Mutelo, S., &amp; Ipinge, R.</div>
+          <div class="pub-venue">2021 IST-Africa Conference, pp. 1–8</div>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-year">2020</div>
+        <div>
+          <div class="pub-title">Policy Implications on ICT Integration in Namibian Basic Education Ecosystem</div>
+          <div class="pub-authors">Kays, R., &amp; Gamundani, A.M.</div>
+          <div class="pub-venue">Proceedings of the 2nd International Conference on Intelligent and Innovative Computing Applications, pp. 1–7</div>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-year">2017</div>
+        <div>
+          <div class="pub-title">A Contemporary Cultural Expression of Marginalised Namibian Youth through Re-Appropriated Technologies</div>
+          <div class="pub-authors">Winschiers-Theophilus, H., Chamunorwa, M., Chivuno-Kuria, S., Kays, R., et al.</div>
+          <div class="pub-venue">Culture and Computer Science Conference, Bode-Museum, Berlin</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Expertise</div>
+      <h2>Core <em>Competencies</em></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Research &amp; Academia</div>
+        <ul class="skill-list">
+          <li>Human–Computer Interaction</li>
+          <li>Participatory Co-Design</li>
+          <li>Academic Writing &amp; Publishing</li>
+          <li>Student Supervision</li>
+          <li>Curriculum Development</li>
+          <li>Course Design</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Technology &amp; Engineering</div>
+        <ul class="skill-list">
+          <li>Software Development</li>
+          <li>Interaction Design</li>
+          <li>AI-Based Applications</li>
+          <li>Learning Management Systems</li>
+          <li>Systems Analysis</li>
+          <li>IT Infrastructure Support</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Leadership &amp; Facilitation</div>
+        <ul class="skill-list">
+          <li>Workshop Facilitation</li>
+          <li>Research Collaboration</li>
+          <li>Project Management</li>
+          <li>Community Engagement</li>
+          <li>Cultural Sensitivity</li>
+          <li>Mentorship &amp; Leadership</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Qualifications</div>
+      <h2>Education &amp; <em>Training</em></h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-year">2024</div>
+        <div class="edu-degree">PhD, Computer Science</div>
+        <div class="edu-inst">Namibia University of Science and Technology</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-year">April 2020</div>
+        <div class="edu-degree">Master of Computer Science</div>
+        <div class="edu-inst">Namibia University of Science and Technology</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-year">April 2017</div>
+        <div class="edu-degree">BSc Honours, Computer Science — Software Development</div>
+        <div class="edu-inst">Namibia University of Science and Technology</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-year">October 2017</div>
+        <div class="edu-degree">Postgraduate Certificate, Higher Education</div>
+        <div class="edu-inst">Namibia University of Science and Technology</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-year">October 2010</div>
+        <div class="edu-degree">Bachelor of IT — Software Development</div>
+        <div class="edu-inst">Namibia University of Science and Technology</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-year">October 2006</div>
+        <div class="edu-degree">National Certificate, Information Technology</div>
+        <div class="edu-inst">Polytechnic of Namibia</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-year">October 2022</div>
+        <div class="edu-degree">Certificate, Management Development</div>
+        <div class="edu-inst">Namibia University of Science and Technology</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-year">March 2026</div>
+        <div class="edu-degree">Grant and Proposal Writing — Certificate</div>
+        <div class="edu-inst">Namibia University of Science and Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Connect</div>
+      <h2>Get in <em>Touch</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="contact-intro">Open to research collaborations, speaking engagements, academic partnerships, and community co-design projects across Africa and beyond.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">✉</div>
+            <div class="contact-detail">
+              <div class="contact-detail-label">Email</div>
+              <div class="contact-detail-value">rosethak@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✆</div>
+            <div class="contact-detail">
+              <div class="contact-detail-label">Phone</div>
+              <div class="contact-detail-value">+264 81 302 3482</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">◎</div>
+            <div class="contact-detail">
+              <div class="contact-detail-label">Location</div>
+              <div class="contact-detail-value">Windhoek, Namibia</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">⌂</div>
+            <div class="contact-detail">
+              <div class="contact-detail-label">Institution</div>
+              <div class="contact-detail-value">Namibia University of Science &amp; Technology</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="info-label" style="color:rgba(255,255,255,0.4);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Academic References</div>
+        <div class="refs-grid">
+          <div class="ref-card">
+            <div class="ref-name">Prof. G. Zodi</div>
+            <div class="ref-role">Associate Dean, Department of Computer Science · NUST</div>
+            <div class="ref-email">gzodi@nust.na</div>
+          </div>
+          <div class="ref-card">
+            <div class="ref-name">Prof. H. Winschiers-Theophilus</div>
+            <div class="ref-role">Senior Lecturer, Software Engineering Department · NUST</div>
+            <div class="ref-email">hwinschiers@nust.na</div>
+          </div>
+          <div class="ref-card">
+            <div class="ref-name">Dr S. Muchinenyika</div>
+            <div class="ref-role">HOD, Software Engineering Department · NUST</div>
+            <div class="ref-email">smuchinenyika@nust.na</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Dr. Rosetha Kays &nbsp;·&nbsp; Windhoek, Namibia &nbsp;·&nbsp; rosethak@gmail.com</p>
+  </footer>
+
+  <script>
+    // Navbar scroll shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Smooth active nav link
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--teal)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
